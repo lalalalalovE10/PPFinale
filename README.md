@@ -7,7 +7,9 @@ Kelompok kami terdiri dari tiga mahasiswa;
 
 Dalam Projek ini kami membuat sebuah permainan dalam bahasa C++, menggunakan library ncurses.
 
-Di projek ini, kami akan membuat sebuah game "Catch The Fruit!"
+Di projek ini, kami akan membuat sebuah game “Tangkap! Jangan Sampai Lolos!” 
+Sebuah permainan berbasis terminal sederhana. Di mana pemain harus menangkap buah-buah (titik penuh) untuk mendapatkan poin.
+
 
 
 
