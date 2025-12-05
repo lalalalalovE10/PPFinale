@@ -7,5 +7,8 @@ Kelompok kami terdiri dari tiga mahasiswa;
 
 Dalam Projek ini kami membuat sebuah permainan dalam bahasa C++, menggunakan library ncurses.
 
+Di projek ini, kami akan membuat sebuah game "Catch The Fruit!"
+
+
 
 
