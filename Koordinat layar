@@ -1,0 +1,45 @@
+#include <ncurses.h>
+#include <unistd.h> // untuk usleep()
+
+int main() {
+    // Inisialisasi ncurses
+    initscr();              // mulai mode ncurses
+    noecho();               // input tidak ditampilkan
+    curs_set(FALSE);        // hide cursor
+    keypad(stdscr, TRUE);   // izinkan input arrow key
+    nodelay(stdscr, TRUE);  // input non-blocking
+
+    int x = 10, y = 5;      // posisi awal
+    int ch;
+
+    while (true) {
+        clear();            // hapus layar
+
+        // Gambar karakter di koordinat (y, x)
+        mvprintw(y, x, "O");
+
+        refresh();          // tampilkan ke layar
+
+        ch = getch();       // baca input
+
+        // Gerakkan karakter berdasarkan panah
+        if (ch == KEY_LEFT)  x--;
+        if (ch == KEY_RIGHT) x++;
+        if (ch == KEY_UP)    y--;
+        if (ch == KEY_DOWN)  y++;
+
+        // Batas layar
+        if (x < 0) x = 0;
+        if (y < 0) y = 0;
+        if (x > COLS - 1) x = COLS - 1;
+        if (y > LINES - 1) y = LINES - 1;
+
+        // Keluar jika tombol 'k' ditekan
+        if (ch == 'k' || ch == 'K') break;
+
+        usleep(50000); // delay sedikit biar smooth
+    }
+
+    endwin(); // akhiri ncurses
+    return 0;
+}
