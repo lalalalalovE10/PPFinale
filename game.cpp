@@ -21,6 +21,9 @@ int main() {
 
     bulatbulat(buletX, buletY);
 
+     cout << "Selamat Datang, Tangkap Yaa, Jangan Sampai Lolos!" << endl;
+     cout << "Good Luck, fellas. And, HAVE FUN!!!" << endl;
+
     while (!gameOver) {
         bersihkan(map);
 
@@ -33,6 +36,7 @@ int main() {
         else if (input == 'd' && playerX < WIDTH - 1)
             playerX++;
         else if (input == 'q')
+             cout << "Yaudah deh, bye-bye" << endl;
             break; 
 
         buletY++;
@@ -50,7 +54,7 @@ int main() {
             gameOver = true;
         }
 
-        map[playerY][playerX] = 'P';
+        map[playerY][playerX] = 'U';
         if (buletY < HEIGHT)
             map[buletY][buletX] = '*';
 
@@ -58,7 +62,7 @@ int main() {
     }
 
     cout << "OH NO! the loser's standing small ah moment \n Score akhir: " << score << endl;
-    cout << "gapapa bub, it's free to try again xoxo" << endl;
+    cout << "ALL FINE, it's always free to try again XOXO" << endl;
     return 0;
 }
 
@@ -81,4 +85,3 @@ void bulatbulat(int &fx, int &fy) {
     fx = rand() % WIDTH;
     fy = 0;
 }
-
