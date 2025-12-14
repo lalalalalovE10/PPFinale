@@ -5,7 +5,7 @@ const int WIDTH = 20;
 const int HEIGHT = 10;
 
 void bersihkan(char map[HEIGHT][WIDTH]);
-void draw(char map[HEIGHT][WIDTH], int score);
+void draw(char map[HEIGHT][WIDTH], int score, int lives);
 void bulatbulat(int &fx, int &fy);
 
 int main() {
@@ -16,6 +16,7 @@ int main() {
 
     int buletX, buletY;
     int score = 0;
+    int lives = 3;
     bool gameOver = false;
 
     bulatbulat(buletX, buletY);
@@ -42,6 +43,10 @@ int main() {
         }
 
         else if (buletY >= HEIGHT) {
+            lives--;
+            bulatbulat(buletX, buletY);
+
+            if (lives <= 0)
             gameOver = true;
         }
 
@@ -49,7 +54,7 @@ int main() {
         if (buletY < HEIGHT)
             map[buletY][buletX] = '*';
 
-        draw(map, score);
+        draw(map, score, lives);
     }
 
     cout << "OH NO! the loser's standing small ah moment \n Score akhir: " << score << endl;
@@ -63,8 +68,8 @@ void bersihkan(char map[HEIGHT][WIDTH]) {
             map[i][j] = '.';
 }
 
-void draw(char map[HEIGHT][WIDTH], int score) {
-    cout << "\nScore: " << score << endl;
+void draw(char map[HEIGHT][WIDTH], int score, int lives) {
+    cout << "\nScore: " << score << " | Lives: " << lives << endl;
     for (int i = 0; i < HEIGHT; i++) {
         for (int j = 0; j < WIDTH; j++)
             cout << map[i][j] << " ";
@@ -76,3 +81,4 @@ void bulatbulat(int &fx, int &fy) {
     fx = rand() % WIDTH;
     fy = 0;
 }
+
