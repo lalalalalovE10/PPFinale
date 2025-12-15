@@ -31,13 +31,16 @@ int main() {
         cout << "[a] kiri | [d] kanan | [q] quit : ";
         cin >> input;
 
-        if (input == 'a' && playerX > 0)
+        if (input == 'a' && playerX > 0) {
             playerX--;
-        else if (input == 'd' && playerX < WIDTH - 1)
+        }
+        else if (input == 'd' && playerX < WIDTH - 1) {
             playerX++;
-        else if (input == 'q')
+        }
+        else if (input == 'q') {
              cout << "Yaudah deh, bye-bye" << endl;
             break; 
+        }
 
         buletY++;
 
@@ -85,3 +88,4 @@ void bulatbulat(int &fx, int &fy) {
     fx = rand() % WIDTH;
     fy = 0;
 }
+
